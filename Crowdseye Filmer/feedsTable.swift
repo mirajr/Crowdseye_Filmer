@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
 
 class feedsTable: UITableViewController {
     
@@ -55,6 +57,35 @@ class feedsTable: UITableViewController {
         self.tabBarController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func getDirections(sender: UIBarButtonItem) {
+        var location = self.eventObject["location"] as! PFGeoPoint
+        var coordinates = CLLocationCoordinate2DMake(location.latitude, location.longitude)
+        var placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        var mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = "\(self.eventObject["name"] as! String)"
+        mapItem.openInMapsWithLaunchOptions(nil)
+    }
+    
+    @IBAction func goLive(sender: UIBarButtonItem) {
+        //must ensure at location?
+        
+        let currentLocation = PFUser.currentUser()!["recentLocation"] as! PFGeoPoint
+        
+        let location = self.eventObject["location"] as! PFGeoPoint
+        
+        var event = CLLocation(latitude: location.latitude, longitude: location.longitude)
+        
+        var user = CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
+        
+        if(event.distanceFromLocation(user) > 400) {
+            UIAlertView(title: "Error", message: "You must be within 400 meters of the event center to film.", delegate: nil, cancelButtonTitle: "Ok").show()
+            return
+        }
+
+        
+        var kickflip = Kickflip.setupWithAPIKey("test", secret: "test")
+        Kickflip.presentBroadcasterFromViewController(self, eventObject: self.eventObject, ready: nil, completion: nil)
+    }
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

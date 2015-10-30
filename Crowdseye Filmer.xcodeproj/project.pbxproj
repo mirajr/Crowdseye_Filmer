@@ -11,7 +11,6 @@
 		99005F5D1BE3E6A8000AF438 /* potentialEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99005F5C1BE3E6A8000AF438 /* potentialEventsTableViewController.swift */; };
 		992DD4FA1BE41888006720B7 /* feedsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992DD4F31BE41888006720B7 /* feedsTable.swift */; };
 		992DD4FB1BE41888006720B7 /* feedsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992DD4F41BE41888006720B7 /* feedsTabViewController.swift */; };
-		992DD4FD1BE41888006720B7 /* feedsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992DD4F61BE41888006720B7 /* feedsMapViewController.swift */; };
 		992DD4FE1BE41888006720B7 /* feedsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 992DD4F71BE41888006720B7 /* feedsCell.xib */; };
 		992DD4FF1BE41888006720B7 /* feedsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992DD4F81BE41888006720B7 /* feedsTableViewCell.swift */; };
 		992DD5021BE41978006720B7 /* filmerWatchFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992DD5011BE41978006720B7 /* filmerWatchFeed.swift */; };
@@ -108,7 +107,6 @@
 		99005F5C1BE3E6A8000AF438 /* potentialEventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = potentialEventsTableViewController.swift; sourceTree = "<group>"; };
 		992DD4F31BE41888006720B7 /* feedsTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = feedsTable.swift; sourceTree = "<group>"; };
 		992DD4F41BE41888006720B7 /* feedsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = feedsTabViewController.swift; sourceTree = "<group>"; };
-		992DD4F61BE41888006720B7 /* feedsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = feedsMapViewController.swift; sourceTree = "<group>"; };
 		992DD4F71BE41888006720B7 /* feedsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = feedsCell.xib; sourceTree = "<group>"; };
 		992DD4F81BE41888006720B7 /* feedsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = feedsTableViewCell.swift; sourceTree = "<group>"; };
 		992DD5011BE41978006720B7 /* filmerWatchFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = filmerWatchFeed.swift; sourceTree = "<group>"; };
@@ -345,7 +343,6 @@
 				992DD4F31BE41888006720B7 /* feedsTable.swift */,
 				992DD4F41BE41888006720B7 /* feedsTabViewController.swift */,
 				992DD5051BE41BA8006720B7 /* filmerFeedsMapView.swift */,
-				992DD4F61BE41888006720B7 /* feedsMapViewController.swift */,
 				992DD4F71BE41888006720B7 /* feedsCell.xib */,
 				992DD4F81BE41888006720B7 /* feedsTableViewCell.swift */,
 				992DD5011BE41978006720B7 /* filmerWatchFeed.swift */,
@@ -641,7 +638,6 @@
 				992DD5021BE41978006720B7 /* filmerWatchFeed.swift in Sources */,
 				99C2B9D11BE317850043AD69 /* KFVideoEncoder.m in Sources */,
 				99C2B9701BE317160043AD69 /* KFAWSCredentialsProvider.m in Sources */,
-				992DD4FD1BE41888006720B7 /* feedsMapViewController.swift in Sources */,
 				99C2B97C1BE317160043AD69 /* KFH264Encoder.mm in Sources */,
 				99C2B9661BE317160043AD69 /* CLPMediaControl.m in Sources */,
 				99C2B9291BE315390043AD69 /* ViewController.swift in Sources */,

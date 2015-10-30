@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Near Me-->
@@ -155,9 +156,21 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nTB-yn-6NR">
-                        <barButtonItem key="leftBarButtonItem" title="Close" id="Wk8-Rk-JqY">
+                        <leftBarButtonItems>
+                            <barButtonItem title="Close" id="Wk8-Rk-JqY">
+                                <connections>
+                                    <action selector="dismissView:" destination="srG-7I-fId" id="i6v-wt-uun"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Get Directions" id="SRV-i9-tbi">
+                                <connections>
+                                    <action selector="getDirections:" destination="srG-7I-fId" id="fAc-cr-Aph"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Go Live" id="tYO-uG-MrZ">
                             <connections>
-                                <action selector="dismissView:" destination="srG-7I-fId" id="i6v-wt-uun"/>
+                                <action selector="goLive:" destination="srG-7I-fId" id="hLm-vo-zQI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -235,7 +248,25 @@
                             <outlet property="delegate" destination="Ces-mB-mv4" id="k4M-pB-jjL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="3cO-WF-GDE"/>
+                    <navigationItem key="navigationItem" id="3cO-WF-GDE">
+                        <leftBarButtonItems>
+                            <barButtonItem title="Close" id="GP0-8F-7dg">
+                                <connections>
+                                    <action selector="returnToEvents:" destination="Ces-mB-mv4" id="F0f-Qs-65D"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Get Directions" id="7gA-Ko-DDl">
+                                <connections>
+                                    <action selector="getDirections:" destination="Ces-mB-mv4" id="dq3-Om-3PC"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Go Live" id="eAt-ab-2Tq">
+                            <connections>
+                                <action selector="goLive:" destination="Ces-mB-mv4" id="0xh-4M-hmF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="OXT-5H-P9N" kind="presentation" identifier="viewFeed" id="uYu-Ua-ENO"/>
                     </connections>
