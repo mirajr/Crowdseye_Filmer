@@ -31,26 +31,7 @@ class nearMeTableViewController: UITableViewController, CLLocationManagerDelegat
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
-//        var mostRecentLocation = locations[0]
-        
-        var query = PFQuery(className: "events")
-        query.orderByDescending("views")
-//        var currentLocation = PFGeoPoint(latitude: mostRecentLocation.coordinate.latitude, longitude: mostRecentLocation.coordinate.longitude)
-        //        query.whereKey("location", nearGeoPoint: currentLocation, withinMiles: 20.0)
-        
-        query.findObjectsInBackground().continueWithBlock({ (task: BFTask!) -> AnyObject! in
-            if(task.result != nil) {
-                self.events.removeAllObjects()
-                print(task.result)
-                self.events.addObjectsFromArray(task.result as! [AnyObject])
-            }
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.tableView.reloadData()
-            })
-            return task
-        })
-
+        locationManager.requestWhenInUseAuthorization()
         
     }
     
@@ -66,7 +47,7 @@ class nearMeTableViewController: UITableViewController, CLLocationManagerDelegat
         var query = PFQuery(className: "events")
         query.orderByDescending("views")
         var currentLocation = PFGeoPoint(latitude: mostRecentLocation.coordinate.latitude, longitude: mostRecentLocation.coordinate.longitude)
-//        query.whereKey("location", nearGeoPoint: currentLocation, withinMiles: 20.0)
+        query.whereKey("location", nearGeoPoint: currentLocation, withinMiles: 20.0)
         
         query.findObjectsInBackground().continueWithBlock({ (task: BFTask!) -> AnyObject! in
             if(task.result != nil) {

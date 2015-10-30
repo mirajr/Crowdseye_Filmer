@@ -23,7 +23,6 @@
 		994D54151BE322D40037AC72 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994D54091BE322D40037AC72 /* QuartzCore.framework */; };
 		994D54161BE322D40037AC72 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994D540A1BE322D40037AC72 /* Security.framework */; };
 		994D54171BE322D40037AC72 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994D540B1BE322D40037AC72 /* Social.framework */; };
-		994D54181BE322D40037AC72 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994D540C1BE322D40037AC72 /* StoreKit.framework */; };
 		994D54191BE322D40037AC72 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994D540D1BE322D40037AC72 /* SystemConfiguration.framework */; };
 		99C2B9271BE315390043AD69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C2B9261BE315390043AD69 /* AppDelegate.swift */; };
 		99C2B9291BE315390043AD69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C2B9281BE315390043AD69 /* ViewController.swift */; };
@@ -113,7 +112,6 @@
 		994D54091BE322D40037AC72 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		994D540A1BE322D40037AC72 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		994D540B1BE322D40037AC72 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		994D540C1BE322D40037AC72 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		994D540D1BE322D40037AC72 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		99C2B9231BE315390043AD69 /* Crowdseye Filmer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crowdseye Filmer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99C2B9261BE315390043AD69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -263,7 +261,6 @@
 				994D54151BE322D40037AC72 /* QuartzCore.framework in Frameworks */,
 				994D54161BE322D40037AC72 /* Security.framework in Frameworks */,
 				994D54171BE322D40037AC72 /* Social.framework in Frameworks */,
-				994D54181BE322D40037AC72 /* StoreKit.framework in Frameworks */,
 				994D54191BE322D40037AC72 /* SystemConfiguration.framework in Frameworks */,
 				994D54011BE3222D0037AC72 /* libBolts.a in Frameworks */,
 				2B9D5A59505CCAF73135C248 /* libPods.a in Frameworks */,
@@ -286,7 +283,6 @@
 				994D54091BE322D40037AC72 /* QuartzCore.framework */,
 				994D540A1BE322D40037AC72 /* Security.framework */,
 				994D540B1BE322D40037AC72 /* Social.framework */,
-				994D540C1BE322D40037AC72 /* StoreKit.framework */,
 				994D540D1BE322D40037AC72 /* SystemConfiguration.framework */,
 				994D54001BE3222D0037AC72 /* libBolts.a */,
 				FD81385A4BC20E361A91F9BB /* libPods.a */,
@@ -502,6 +498,12 @@
 				TargetAttributes = {
 					99C2B9221BE315390043AD69 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 2EW84VZ43K;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
