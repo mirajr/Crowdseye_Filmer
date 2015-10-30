@@ -15,7 +15,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        Parse.setApplicationId("HSPKoZpqyPfrGkmQV5rQ18DIUtPT54Ds4PhiJJix",
+            clientKey: "pDreMDJo9xe7e2heKrWDfH1xIE1WNmdKCMPg75Ex")
+        do {
+            PFUser.enableAutomaticUser();
+            try PFUser.currentUser()?.save()
+            
+            var currentUser = PFUser.currentUser()!
+            
+            if(currentUser["name"] == nil || currentUser["name"] as! String == "") {
+                currentUser["name"] = "Anonymous"
+                try currentUser.save()
+            }
+        } catch {
+            print("Sign up unsuccessful")
+        }
+        
         return true
     }
 

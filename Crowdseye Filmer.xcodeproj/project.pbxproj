@@ -8,6 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		2B9D5A59505CCAF73135C248 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD81385A4BC20E361A91F9BB /* libPods.a */; };
+		994D53F81BE31F370037AC72 /* eventsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 994D53F71BE31F370037AC72 /* eventsCell.xib */; };
+		994D53FA1BE31F460037AC72 /* nearMeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994D53F91BE31F460037AC72 /* nearMeTableViewController.swift */; };
+		994D53FD1BE320A60037AC72 /* eventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994D53FC1BE320A60037AC72 /* eventsTableViewCell.swift */; };
+		994D53FF1BE320C50037AC72 /* utility_functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994D53FE1BE320C50037AC72 /* utility_functions.swift */; };
+		994D54011BE3222D0037AC72 /* libBolts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 994D54001BE3222D0037AC72 /* libBolts.a */; };
+		994D540E1BE322D40037AC72 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994D54021BE322D40037AC72 /* Accounts.framework */; };
+		994D540F1BE322D40037AC72 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994D54031BE322D40037AC72 /* AudioToolbox.framework */; };
+		994D54101BE322D40037AC72 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994D54041BE322D40037AC72 /* CFNetwork.framework */; };
+		994D54111BE322D40037AC72 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994D54051BE322D40037AC72 /* CoreGraphics.framework */; };
+		994D54121BE322D40037AC72 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994D54061BE322D40037AC72 /* CoreLocation.framework */; };
+		994D54131BE322D40037AC72 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 994D54071BE322D40037AC72 /* libsqlite3.tbd */; };
+		994D54141BE322D40037AC72 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 994D54081BE322D40037AC72 /* libz.tbd */; };
+		994D54151BE322D40037AC72 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994D54091BE322D40037AC72 /* QuartzCore.framework */; };
+		994D54161BE322D40037AC72 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994D540A1BE322D40037AC72 /* Security.framework */; };
+		994D54171BE322D40037AC72 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994D540B1BE322D40037AC72 /* Social.framework */; };
+		994D54181BE322D40037AC72 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994D540C1BE322D40037AC72 /* StoreKit.framework */; };
+		994D54191BE322D40037AC72 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994D540D1BE322D40037AC72 /* SystemConfiguration.framework */; };
 		99C2B9271BE315390043AD69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C2B9261BE315390043AD69 /* AppDelegate.swift */; };
 		99C2B9291BE315390043AD69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C2B9281BE315390043AD69 /* ViewController.swift */; };
 		99C2B92C1BE315390043AD69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99C2B92A1BE315390043AD69 /* Main.storyboard */; };
@@ -80,6 +97,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		994D53F71BE31F370037AC72 /* eventsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = eventsCell.xib; sourceTree = "<group>"; };
+		994D53F91BE31F460037AC72 /* nearMeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nearMeTableViewController.swift; sourceTree = "<group>"; };
+		994D53FB1BE31F9F0037AC72 /* Clappr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Clappr.h; sourceTree = "<group>"; };
+		994D53FC1BE320A60037AC72 /* eventsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = eventsTableViewCell.swift; sourceTree = "<group>"; };
+		994D53FE1BE320C50037AC72 /* utility_functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = utility_functions.swift; sourceTree = "<group>"; };
+		994D54001BE3222D0037AC72 /* libBolts.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBolts.a; path = "Pods/../build/Debug-iphoneos/libBolts.a"; sourceTree = "<group>"; };
+		994D54021BE322D40037AC72 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		994D54031BE322D40037AC72 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		994D54041BE322D40037AC72 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		994D54051BE322D40037AC72 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		994D54061BE322D40037AC72 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		994D54071BE322D40037AC72 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		994D54081BE322D40037AC72 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		994D54091BE322D40037AC72 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		994D540A1BE322D40037AC72 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		994D540B1BE322D40037AC72 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		994D540C1BE322D40037AC72 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		994D540D1BE322D40037AC72 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		99C2B9231BE315390043AD69 /* Crowdseye Filmer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crowdseye Filmer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99C2B9261BE315390043AD69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99C2B9281BE315390043AD69 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +253,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				994D540E1BE322D40037AC72 /* Accounts.framework in Frameworks */,
+				994D540F1BE322D40037AC72 /* AudioToolbox.framework in Frameworks */,
+				994D54101BE322D40037AC72 /* CFNetwork.framework in Frameworks */,
+				994D54111BE322D40037AC72 /* CoreGraphics.framework in Frameworks */,
+				994D54121BE322D40037AC72 /* CoreLocation.framework in Frameworks */,
+				994D54131BE322D40037AC72 /* libsqlite3.tbd in Frameworks */,
+				994D54141BE322D40037AC72 /* libz.tbd in Frameworks */,
+				994D54151BE322D40037AC72 /* QuartzCore.framework in Frameworks */,
+				994D54161BE322D40037AC72 /* Security.framework in Frameworks */,
+				994D54171BE322D40037AC72 /* Social.framework in Frameworks */,
+				994D54181BE322D40037AC72 /* StoreKit.framework in Frameworks */,
+				994D54191BE322D40037AC72 /* SystemConfiguration.framework in Frameworks */,
+				994D54011BE3222D0037AC72 /* libBolts.a in Frameworks */,
 				2B9D5A59505CCAF73135C248 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,6 +276,19 @@
 		10A601B86D278C9ED2D0DB1C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				994D54021BE322D40037AC72 /* Accounts.framework */,
+				994D54031BE322D40037AC72 /* AudioToolbox.framework */,
+				994D54041BE322D40037AC72 /* CFNetwork.framework */,
+				994D54051BE322D40037AC72 /* CoreGraphics.framework */,
+				994D54061BE322D40037AC72 /* CoreLocation.framework */,
+				994D54071BE322D40037AC72 /* libsqlite3.tbd */,
+				994D54081BE322D40037AC72 /* libz.tbd */,
+				994D54091BE322D40037AC72 /* QuartzCore.framework */,
+				994D540A1BE322D40037AC72 /* Security.framework */,
+				994D540B1BE322D40037AC72 /* Social.framework */,
+				994D540C1BE322D40037AC72 /* StoreKit.framework */,
+				994D540D1BE322D40037AC72 /* SystemConfiguration.framework */,
+				994D54001BE3222D0037AC72 /* libBolts.a */,
 				FD81385A4BC20E361A91F9BB /* libPods.a */,
 			);
 			name = Frameworks;
@@ -271,6 +332,10 @@
 				99C2B92F1BE315390043AD69 /* LaunchScreen.storyboard */,
 				99C2B9F01BE3191A0043AD69 /* chatTableViewCell.swift */,
 				99C2B9EE1BE319150043AD69 /* chatCell.xib */,
+				994D53F91BE31F460037AC72 /* nearMeTableViewController.swift */,
+				994D53F71BE31F370037AC72 /* eventsCell.xib */,
+				994D53FC1BE320A60037AC72 /* eventsTableViewCell.swift */,
+				994D53FE1BE320C50037AC72 /* utility_functions.swift */,
 				99C2B9321BE315390043AD69 /* Info.plist */,
 				99C2B9381BE317160043AD69 /* Crowdseye Filmer-Bridging-Header.h */,
 			);
@@ -379,6 +444,7 @@
 				99C2B9B11BE317850043AD69 /* CLPPlayer.h */,
 				99C2B9B21BE317850043AD69 /* CLPPlayer.m */,
 				99C2B9B31BE317850043AD69 /* CLPPlugin.h */,
+				994D53FB1BE31F9F0037AC72 /* Clappr.h */,
 				99C2B9B41BE317850043AD69 /* CLPPlugin.m */,
 				99C2B9B51BE317850043AD69 /* CLPScrubberView.h */,
 				99C2B9B61BE317850043AD69 /* CLPScrubberView.m */,
@@ -467,6 +533,7 @@
 				99C2B9D01BE317850043AD69 /* KFStreamTableViewCellDots@2x.png in Resources */,
 				99C2B9751BE317160043AD69 /* KFCameraReverse@2x.png in Resources */,
 				99C2B92E1BE315390043AD69 /* Assets.xcassets in Resources */,
+				994D53F81BE31F370037AC72 /* eventsCell.xib in Resources */,
 				99C2B9EF1BE319150043AD69 /* chatCell.xib in Resources */,
 				99C2B9CA1BE317850043AD69 /* KFRecordButtonBorder@2x.png in Resources */,
 				99C2B9781BE317160043AD69 /* KFDeviceRotation@2x.png in Resources */,
@@ -534,6 +601,7 @@
 				99C2B96A1BE317160043AD69 /* KFHLSManifestGenerator.m in Sources */,
 				99C2B9DD1BE317850043AD69 /* CLPLoader.m in Sources */,
 				99C2B9791BE317160043AD69 /* KFDirectoryWatcher.m in Sources */,
+				994D53FA1BE31F460037AC72 /* nearMeTableViewController.swift in Sources */,
 				99C2B9F11BE3191A0043AD69 /* chatTableViewCell.swift in Sources */,
 				99C2B9721BE317160043AD69 /* KFUser.m in Sources */,
 				99C2B9D11BE317850043AD69 /* KFVideoEncoder.m in Sources */,
@@ -542,9 +610,11 @@
 				99C2B9661BE317160043AD69 /* CLPMediaControl.m in Sources */,
 				99C2B9291BE315390043AD69 /* ViewController.swift in Sources */,
 				99C2B9DE1BE317850043AD69 /* CLPPlayback.m in Sources */,
+				994D53FD1BE320A60037AC72 /* eventsTableViewCell.swift in Sources */,
 				99C2B9CE1BE317850043AD69 /* KFStream.m in Sources */,
 				99C2B9731BE317160043AD69 /* KFAACEncoder.m in Sources */,
 				99C2B96D1BE317160043AD69 /* KFHLSMonitor.m in Sources */,
+				994D53FF1BE320C50037AC72 /* utility_functions.swift in Sources */,
 				99C2B9C71BE317850043AD69 /* KFLiveBannerView.m in Sources */,
 				99C2B97D1BE317160043AD69 /* KFHLSWriter.m in Sources */,
 				99C2B9CF1BE317850043AD69 /* KFStreamTableViewCell.m in Sources */,
@@ -690,6 +760,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Crowdseye Filmer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "crowdseye.Crowdseye-Filmer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Crowdseye Filmer/Crowdseye Filmer-Bridging-Header.h";
@@ -705,6 +779,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Crowdseye Filmer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "crowdseye.Crowdseye-Filmer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Crowdseye Filmer/Crowdseye Filmer-Bridging-Header.h";
