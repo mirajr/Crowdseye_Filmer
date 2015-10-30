@@ -47,7 +47,7 @@ class potentialEventsTableViewController: UITableViewController, CLLocationManag
         query.orderByDescending("views")
         var currentLocation = PFGeoPoint(latitude: mostRecentLocation.coordinate.latitude, longitude: mostRecentLocation.coordinate.longitude)
         query.whereKey("location", nearGeoPoint: currentLocation, withinMiles: 20.0)
-        query.whereKey("potential", equalTo: true)
+        query.whereKey("potential", equalTo: 1)
         query.findObjectsInBackground().continueWithBlock({ (task: BFTask!) -> AnyObject! in
             if(task.result != nil) {
                 self.events.removeAllObjects()
