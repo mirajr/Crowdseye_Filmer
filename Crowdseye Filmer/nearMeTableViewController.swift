@@ -119,9 +119,13 @@ class nearMeTableViewController: UITableViewController, CLLocationManagerDelegat
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.selectedEvent = self.events.objectAtIndex(indexPath.row) as! PFObject
-//        self.performSegueWithIdentifier("viewFeeds", sender: nil)
+        self.performSegueWithIdentifier("viewFeeds", sender: nil)
     }
     
+    @IBAction func createEvent(sender: UIBarButtonItem) {
+        var kickflip = Kickflip.setupWithAPIKey("test", secret: "test")
+        Kickflip.presentBroadcasterFromViewController(self, eventObject: nil, ready: nil, completion: nil)
+    }
     
     /*
     // Override to support conditional editing of the table view.
@@ -168,7 +172,7 @@ class nearMeTableViewController: UITableViewController, CLLocationManagerDelegat
 //        if(segue.identifier == "viewFeeds") {
 //            var destination = segue.destinationViewController as! feedsTabViewController
 //            destination.eventObject = selectedEvent
-////            destination.eventObjectKey = selectedEventKey
+//
 //        }
         
     }

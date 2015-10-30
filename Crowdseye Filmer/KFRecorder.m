@@ -467,7 +467,7 @@
     PFGeoPoint *currentLocation = [currentUser objectForKey:@"recentLocation"];
 
     if(eventObject == nil) {
-        newEvent = [PFObject objectWithClassName:@"potentialEvent"];
+        newEvent = [PFObject objectWithClassName:@"events"];
         [newEvent setValuesForKeysWithDictionary:@{@"views" : @0,
                                                    @"name" : titleText,
                                                    @"location" : currentLocation,
