@@ -471,7 +471,8 @@
         [newEvent setValuesForKeysWithDictionary:@{@"views" : @0,
                                                    @"name" : titleText,
                                                    @"location" : currentLocation,
-                                                   @"lowerName" : [titleText lowercaseString]
+                                                   @"lowerName" : [titleText lowercaseString],
+                                                   @"potential" : @true
                                                    }];
         [newEvent save];
         

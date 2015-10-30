@@ -43,10 +43,11 @@ class potentialEventsTableViewController: UITableViewController, CLLocationManag
         manager.stopUpdatingLocation()
         var mostRecentLocation = locations[0]
         
-        var query = PFQuery(className: "potentialEvents")
+        var query = PFQuery(className: "events")
         query.orderByDescending("views")
         var currentLocation = PFGeoPoint(latitude: mostRecentLocation.coordinate.latitude, longitude: mostRecentLocation.coordinate.longitude)
         query.whereKey("location", nearGeoPoint: currentLocation, withinMiles: 20.0)
+        query.whereKey("potential", equalTo: true)
         query.findObjectsInBackground().continueWithBlock({ (task: BFTask!) -> AnyObject! in
             if(task.result != nil) {
                 self.events.removeAllObjects()
