@@ -1,0 +1,33 @@
+platform :ios, '8.0'
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+# See: http://guides.cocoapods.org/making/making-a-cocoapod.html#release
+# Once the pod has been released, use a version number here instead of a path.
+pod ‘Parse’
+pod 'Firebase', '>= 2.3.3'
+pod 'AWSCore'
+pod 'AWSAutoScaling'
+pod 'AWSCloudWatch'
+pod 'AWSDynamoDB'
+pod 'AWSEC2'
+pod 'AWSElasticLoadBalancing'
+pod 'AWSKinesis'
+pod 'AWSLambda'
+pod 'AWSMachineLearning'
+pod 'AWSMobileAnalytics'
+pod 'AWSS3'
+pod 'AWSSES'
+pod 'AWSSimpleDB'
+pod 'AWSSNS'
+pod 'AWSSQS'
+pod 'AWSCognito'
+pod ’AFNetworking', '~> 2.2'
+pod ’AFOAuth2Manager', '~> 2.0'
+pod ’CocoaLumberjack', '>= 1.0'
+pod ’SSKeychain', '~> 1.2'
+pod ’FFmpegWrapper', '~> 1.0'
+pod ’PureLayout', '~> 2.0'
+pod ’Mantle', '~> 1.4'
+pod ’SDWebImage', '~> 3.6'
+pod 'FormatterKit/TimeIntervalFormatter', '~> 1.4'
