@@ -461,14 +461,31 @@
 //    self.locationManager.delegate = self;
 //    [self.locationManager startUpdatingLocation];
 //    NSMutableString *firebaseURL = [[NSMutableString alloc] initWithString:@"https://godseye.firebaseio.com/feeds/"];
+    PFObject *newEvent = eventObject;
+    PFUser *currentUser = [PFUser currentUser];
+    
+    PFGeoPoint *currentLocation = [currentUser objectForKey:@"recentLocation"];
+
+    if(eventObject == nil) {
+        newEvent = [PFObject objectWithClassName:@"potentialEvent"];
+        [newEvent setValuesForKeysWithDictionary:@{@"views" : @0,
+                                                   @"name" : titleText,
+                                                   @"location" : currentLocation,
+                                                   @"lowerName" : [titleText lowercaseString]
+                                                   }];
+        [newEvent save];
+        
+    }
+    
     
     self.feedObject = [PFObject objectWithClassName:@"feeds"];
     
     [self.feedObject save];
     
-    PFUser *currentUser = [PFUser currentUser];
+    if (eventObject == nil) {
+        [newEvent setObject:[NSString stringWithFormat:@"https://s3-us-west-1.amazonaws.com/crowdseye/%@/thumb.jpg", self.feedObject.objectId] forKey:@"image"];
+    }
     
-    PFGeoPoint *currentLocation = [currentUser objectForKey:@"recentLocation"];
     
     [self.feedObject setValuesForKeysWithDictionary:@{
                                                       @"author" : [currentUser objectForKey:@"name"],
@@ -476,12 +493,12 @@
                                                       @"image": [NSString stringWithFormat:@"https://s3-us-west-1.amazonaws.com/crowdseye/%@/thumb.jpg", self.feedObject.objectId],
                                                       @"name" : titleText,
                                                       @"lowerName" : [titleText lowercaseString],
-                                                      @"event" : [eventObject objectId],
+                                                      @"event" : [newEvent objectId],
                                                       @"views" : @0,
                                                       @"user" : [currentUser objectId],
                                                       @"location" : currentLocation
                                                       }];
-    [self.feedObject save];
+    [self.feedObject saveInBackground];
     
 //    self.feedObject = [PFObject objectWithClassName:@"feeds" dictionary:@{
 //                                                                          @"author" : @"Anonymous",

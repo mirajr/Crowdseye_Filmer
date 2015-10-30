@@ -63,6 +63,12 @@
 - (void) setupTitleLabel {
     self.titleText = [[UITextField alloc] initWithFrame:CGRectZero];
     self.titleText.backgroundColor = [UIColor whiteColor];
+    if(self.eventObject == nil) {
+       self.titleText.placeholder = @"Event Title";
+    } else {
+        self.titleText.placeholder = @"Feed Title";
+    }
+    
     
     [self.view addSubview:self.titleText];
     NSLayoutConstraint *constraint = [self.titleText autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:20.0f];

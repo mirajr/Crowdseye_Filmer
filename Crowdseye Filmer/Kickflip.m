@@ -29,6 +29,7 @@ static Kickflip *_kickflip = nil;
 
 + (void) presentBroadcasterFromViewController:(UIViewController *)viewController eventObject:(PFObject*)eventObject ready:(KFBroadcastReadyBlock)readyBlock completion:(KFBroadcastCompletionBlock)completionBlock {
     KFBroadcastViewController *broadcastViewController = [[KFBroadcastViewController alloc] init];
+    //event object nil when creating event
     broadcastViewController.eventObject = eventObject;
     broadcastViewController.readyBlock = readyBlock;
     broadcastViewController.completionBlock = completionBlock;

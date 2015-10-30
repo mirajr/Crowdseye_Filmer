@@ -45,7 +45,13 @@
                             <outlet property="delegate" destination="Chs-D7-L5k" id="nOi-TK-wT3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Events Near Me" id="xJU-ue-2kX"/>
+                    <navigationItem key="navigationItem" title="Events Near Me" id="xJU-ue-2kX">
+                        <barButtonItem key="rightBarButtonItem" title="Create Event" id="qyN-Po-uHx">
+                            <connections>
+                                <action selector="createEvent:" destination="Chs-D7-L5k" id="q32-iM-2bL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uEL-Xn-P3K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

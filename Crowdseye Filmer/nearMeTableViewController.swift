@@ -122,6 +122,10 @@ class nearMeTableViewController: UITableViewController, CLLocationManagerDelegat
 //        self.performSegueWithIdentifier("viewFeeds", sender: nil)
     }
     
+    @IBAction func createEvent(sender: UIBarButtonItem) {
+        var kickflip = Kickflip.setupWithAPIKey("test", secret: "test")
+        Kickflip.presentBroadcasterFromViewController(self, eventObject: nil, ready: nil, completion: nil)
+    }
     
     /*
     // Override to support conditional editing of the table view.
