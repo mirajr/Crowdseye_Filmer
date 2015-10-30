@@ -48,7 +48,6 @@ class nearMeTableViewController: UITableViewController, CLLocationManagerDelegat
         query.orderByDescending("views")
         var currentLocation = PFGeoPoint(latitude: mostRecentLocation.coordinate.latitude, longitude: mostRecentLocation.coordinate.longitude)
         query.whereKey("location", nearGeoPoint: currentLocation, withinMiles: 20.0)
-        
         query.findObjectsInBackground().continueWithBlock({ (task: BFTask!) -> AnyObject! in
             if(task.result != nil) {
                 self.events.removeAllObjects()
@@ -90,6 +89,16 @@ class nearMeTableViewController: UITableViewController, CLLocationManagerDelegat
         let cell = tableView.dequeueReusableCellWithIdentifier("eventsCell", forIndexPath: indexPath) as! eventsTableViewCell
         
         let object = self.events.objectAtIndex(indexPath.row) as! PFObject
+        
+        let currentLocation = PFUser.currentUser()!["recentLocation"] as! PFGeoPoint
+        
+        let location = object["location"] as! PFGeoPoint
+        
+        var event = CLLocation(latitude: location.latitude, longitude: location.longitude)
+        
+        var user = CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
+        
+        cell.distanceTitle.text = "Distance Away: " + String(event.distanceFromLocation(user)/1600) + " miles"
         
         //var object = self.events.objectAtIndex(indexPath.row) as! PFObject
         cell.eventTitle.text = " " + (object["name"] as! String) + " "

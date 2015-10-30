@@ -15,11 +15,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="379.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9hP-vb-Sm5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9hP-vb-Sm5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="379.5"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPL-KW-TKr">
-                        <rect key="frame" x="0.0" y="107" width="51" height="26"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPL-KW-TKr">
+                        <rect key="frame" x="0.0" y="337.5" width="51" height="26"/>
                         <color key="backgroundColor" red="0.87843137250000003" green="0.2274509804" blue="0.2274509804" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="26" id="JNo-1J-uS5"/>
@@ -38,6 +38,16 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfb-L5-Hez">
+                        <rect key="frame" x="0.0" y="8" width="64" height="21"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="F5L-1Q-Icq"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="9hP-vb-Sm5" secondAttribute="trailing" constant="-8" id="66j-TQ-FBo"/>
@@ -45,10 +55,12 @@
                     <constraint firstItem="bPL-KW-TKr" firstAttribute="centerY" secondItem="lls-GU-lPO" secondAttribute="centerY" id="I4W-bW-RR6"/>
                     <constraint firstItem="9hP-vb-Sm5" firstAttribute="leading" secondItem="lls-GU-lPO" secondAttribute="leadingMargin" constant="-8" id="JS3-1g-m26"/>
                     <constraint firstItem="9hP-vb-Sm5" firstAttribute="top" secondItem="lls-GU-lPO" secondAttribute="topMargin" constant="-8" id="VGB-iT-gXO"/>
+                    <constraint firstItem="9hP-vb-Sm5" firstAttribute="top" secondItem="rfb-L5-Hez" secondAttribute="bottom" constant="-29" id="dnR-KH-kdo"/>
                     <constraint firstAttribute="bottomMargin" secondItem="9hP-vb-Sm5" secondAttribute="bottom" constant="-8" id="fje-mD-X2I"/>
                     <constraint firstAttribute="trailingMargin" secondItem="F4h-HL-ZzP" secondAttribute="trailing" constant="-8" id="hdm-9v-Ehu"/>
                     <constraint firstItem="bPL-KW-TKr" firstAttribute="leading" secondItem="lls-GU-lPO" secondAttribute="leadingMargin" constant="-8" id="js3-5s-Fin"/>
                     <constraint firstItem="F4h-HL-ZzP" firstAttribute="top" secondItem="lls-GU-lPO" secondAttribute="topMargin" id="lzg-j3-94p"/>
+                    <constraint firstItem="rfb-L5-Hez" firstAttribute="leading" secondItem="lls-GU-lPO" secondAttribute="leadingMargin" constant="-8" id="sam-xd-OW8"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
@@ -57,11 +69,12 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="distanceTitle" destination="rfb-L5-Hez" id="zZU-76-1yc"/>
                 <outlet property="eventImage" destination="9hP-vb-Sm5" id="plo-fM-cTP"/>
                 <outlet property="eventTitle" destination="bPL-KW-TKr" id="70R-eO-62Z"/>
                 <outlet property="viewsText" destination="F4h-HL-ZzP" id="qAQ-7S-D42"/>
             </connections>
-            <point key="canvasLocation" x="302" y="626"/>
+            <point key="canvasLocation" x="240" y="592"/>
         </tableViewCell>
     </objects>
 </document>

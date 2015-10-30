@@ -25,5 +25,6 @@ class eventsTableViewCell: UITableViewCell {
     @IBOutlet weak var eventTitle: UILabel!
     @IBOutlet weak var eventImage: UIImageView!
     @IBOutlet weak var viewsText: UILabel!
+    @IBOutlet weak var distanceTitle: UILabel!
 
 }
