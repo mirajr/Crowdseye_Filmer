@@ -31,6 +31,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Sign up unsuccessful")
         }
         
+        var credentialsProvider = AWSCognitoCredentialsProvider(regionType: AWSRegionType.USEast1, identityPoolId: "us-east-1:cdb87120-5f38-479d-955c-39cd27f27aac")
+        
+        let defaultServiceConfiguration = AWSServiceConfiguration(
+            region: AWSRegionType.USWest1,
+            credentialsProvider: credentialsProvider)
+        
+        AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = defaultServiceConfiguration
+
+        
         return true
     }
 

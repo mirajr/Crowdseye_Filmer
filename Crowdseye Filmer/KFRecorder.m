@@ -592,6 +592,7 @@
                 DDLogError(@"Error creating AVAssetWriter: %@", error);
         });
     }
+    NSLog(@"Exited record stage");
 }
 
 - (void) stopRecording {
