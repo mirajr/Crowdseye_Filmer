@@ -44,7 +44,7 @@ class nearMeTableViewController: UITableViewController, CLLocationManagerDelegat
         manager.stopUpdatingLocation()
         var mostRecentLocation = locations[0]
         
-        var query = PFQuery(className: "potentialEvents")
+        var query = PFQuery(className: "events")
         query.orderByDescending("views")
         var currentLocation = PFGeoPoint(latitude: mostRecentLocation.coordinate.latitude, longitude: mostRecentLocation.coordinate.longitude)
         query.whereKey("location", nearGeoPoint: currentLocation, withinMiles: 20.0)
