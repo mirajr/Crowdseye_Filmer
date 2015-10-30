@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "92E607D06D2A303610423C187441BD2DCD03E9AC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "D4525F2D264388D55AAE4F86494DD6F3BB042A41" : 0,
+    "92E607D06D2A303610423C187441BD2DCD03E9AC" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "137FCCD6-4C69-4A9B-B5BF-CFDAC2BB0505",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "D4525F2D264388D55AAE4F86494DD6F3BB042A41" : "",
+    "92E607D06D2A303610423C187441BD2DCD03E9AC" : "Crowdseye%20Filmer\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Crowdseye Filmer",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Crowdseye Filmer.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/patrick-ogrady\/Crowdseye_Filmer.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "92E607D06D2A303610423C187441BD2DCD03E9AC"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/patrick-ogrady\/Crowdseye_Filmer.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D4525F2D264388D55AAE4F86494DD6F3BB042A41"
+    }
+  ]
+}
