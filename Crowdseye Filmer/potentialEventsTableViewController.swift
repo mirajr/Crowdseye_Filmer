@@ -1,16 +1,15 @@
 //
-//  nearMeTableViewController.swift
-//  SampleBroadcaster-Swift
+//  potentialEventsTableViewController.swift
+//  Crowdseye Filmer
 //
-//  Created by Patrick O'Grady on 9/9/15.
-//  Copyright © 2015 videocore. All rights reserved.
+//  Created by Patrick O'Grady on 10/30/15.
+//  Copyright © 2015 crowdseye. All rights reserved.
 //
 
 import UIKit
 import CoreLocation
 
-class nearMeTableViewController: UITableViewController, CLLocationManagerDelegate {
-
+class potentialEventsTableViewController: UITableViewController, CLLocationManagerDelegate {
     var events:NSMutableArray = NSMutableArray()
     
     var eventsRetrieved = NSMutableArray()
@@ -44,7 +43,7 @@ class nearMeTableViewController: UITableViewController, CLLocationManagerDelegat
         manager.stopUpdatingLocation()
         var mostRecentLocation = locations[0]
         
-        var query = PFQuery(className: "potentialEvents")
+        var query = PFQuery(className: "events")
         query.orderByDescending("views")
         var currentLocation = PFGeoPoint(latitude: mostRecentLocation.coordinate.latitude, longitude: mostRecentLocation.coordinate.longitude)
         query.whereKey("location", nearGeoPoint: currentLocation, withinMiles: 20.0)
@@ -65,7 +64,7 @@ class nearMeTableViewController: UITableViewController, CLLocationManagerDelegat
         currentUser.saveInBackground()
         
     }
-
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -113,13 +112,13 @@ class nearMeTableViewController: UITableViewController, CLLocationManagerDelegat
         cell.viewsText.text = " Views: " + String(views) + "  "
         
         
-
+        
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.selectedEvent = self.events.objectAtIndex(indexPath.row) as! PFObject
-//        self.performSegueWithIdentifier("viewFeeds", sender: nil)
+        //        self.performSegueWithIdentifier("viewFeeds", sender: nil)
     }
     
     @IBAction func createEvent(sender: UIBarButtonItem) {
@@ -169,12 +168,13 @@ class nearMeTableViewController: UITableViewController, CLLocationManagerDelegat
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-//        if(segue.identifier == "viewFeeds") {
-//            var destination = segue.destinationViewController as! feedsTabViewController
-//            destination.eventObject = selectedEvent
-////            destination.eventObjectKey = selectedEventKey
-//        }
+        //        if(segue.identifier == "viewFeeds") {
+        //            var destination = segue.destinationViewController as! feedsTabViewController
+        //            destination.eventObject = selectedEvent
+        ////            destination.eventObjectKey = selectedEventKey
+        //        }
         
     }
+
 
 }

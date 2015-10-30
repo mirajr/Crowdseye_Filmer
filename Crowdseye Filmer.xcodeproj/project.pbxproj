@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B9D5A59505CCAF73135C248 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD81385A4BC20E361A91F9BB /* libPods.a */; };
+		99005F5D1BE3E6A8000AF438 /* potentialEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99005F5C1BE3E6A8000AF438 /* potentialEventsTableViewController.swift */; };
 		994D53F81BE31F370037AC72 /* eventsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 994D53F71BE31F370037AC72 /* eventsCell.xib */; };
 		994D53FA1BE31F460037AC72 /* nearMeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994D53F91BE31F460037AC72 /* nearMeTableViewController.swift */; };
 		994D53FD1BE320A60037AC72 /* eventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994D53FC1BE320A60037AC72 /* eventsTableViewCell.swift */; };
@@ -96,6 +97,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		99005F5C1BE3E6A8000AF438 /* potentialEventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = potentialEventsTableViewController.swift; sourceTree = "<group>"; };
 		994D53F71BE31F370037AC72 /* eventsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = eventsCell.xib; sourceTree = "<group>"; };
 		994D53F91BE31F460037AC72 /* nearMeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nearMeTableViewController.swift; sourceTree = "<group>"; };
 		994D53FB1BE31F9F0037AC72 /* Clappr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Clappr.h; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				99C2B9F01BE3191A0043AD69 /* chatTableViewCell.swift */,
 				99C2B9EE1BE319150043AD69 /* chatCell.xib */,
 				994D53F91BE31F460037AC72 /* nearMeTableViewController.swift */,
+				99005F5C1BE3E6A8000AF438 /* potentialEventsTableViewController.swift */,
 				994D53F71BE31F370037AC72 /* eventsCell.xib */,
 				994D53FC1BE320A60037AC72 /* eventsTableViewCell.swift */,
 				994D53FE1BE320C50037AC72 /* utility_functions.swift */,
@@ -639,6 +642,7 @@
 				99C2B9D71BE317850043AD69 /* CLPBaseObject.m in Sources */,
 				99C2B9C91BE317850043AD69 /* KFRecordButton.m in Sources */,
 				99C2B9D91BE317850043AD69 /* CLPCore.m in Sources */,
+				99005F5D1BE3E6A8000AF438 /* potentialEventsTableViewController.swift in Sources */,
 				99C2B9C81BE317850043AD69 /* KFPaginationInfo.m in Sources */,
 				99C2B9D21BE317850043AD69 /* KFVideoFrame.m in Sources */,
 				99C2B9E31BE317850043AD69 /* CLPSpinnerThreeBouncePlugin.m in Sources */,

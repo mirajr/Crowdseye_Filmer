@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="FZz-WH-VMM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9046" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zgQ-ak-HKZ">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
     </dependencies>
     <scenes>
         <!--Near Me-->
@@ -21,6 +20,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cia-WI-a7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-387" y="332"/>
+        </scene>
+        <!--Potential Events-->
+        <scene sceneID="pss-3o-e09">
+            <objects>
+                <navigationController id="dCg-Px-Cav" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Potential Events" id="0mR-Rt-r93"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="q2K-4i-3GD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Mzm-nw-P1B" kind="relationship" relationship="rootViewController" id="VXY-FE-yUD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RMj-yM-Mdj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-387" y="1553"/>
+        </scene>
+        <!--Potential Events-->
+        <scene sceneID="mjG-lv-Dsy">
+            <objects>
+                <tableViewController id="Mzm-nw-P1B" customClass="potentialEventsTableViewController" customModule="Crowdseye_Filmer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="CSi-rP-Wxj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventsCell" id="zNn-an-thl" customClass="eventsTableViewCell" customModule="Crowdseye_Filmer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zNn-an-thl" id="64N-hh-7k9">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Mzm-nw-P1B" id="tTQ-8d-hmG"/>
+                            <outlet property="delegate" destination="Mzm-nw-P1B" id="W92-wb-pOe"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Potential Events" id="1ET-FV-Lq6"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PMS-A5-iYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="437" y="1553"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Iay-a1-as1">
+            <objects>
+                <tabBarController id="zgQ-ak-HKZ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="XvB-1X-MKb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="FZz-WH-VMM" kind="relationship" relationship="viewControllers" id="nEf-tm-nts"/>
+                        <segue destination="dCg-Px-Cav" kind="relationship" relationship="viewControllers" id="zfl-al-8Jk"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ff4-O4-ThG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1255" y="1083"/>
         </scene>
         <!--Events Near Me-->
         <scene sceneID="yao-kq-xAE">

@@ -484,6 +484,7 @@
     
     if (eventObject == nil) {
         [newEvent setObject:[NSString stringWithFormat:@"https://s3-us-west-1.amazonaws.com/crowdseye/%@/thumb.jpg", self.feedObject.objectId] forKey:@"image"];
+        [newEvent saveInBackground];
     }
     
     

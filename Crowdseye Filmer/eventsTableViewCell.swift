@@ -12,15 +12,12 @@ class eventsTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         eventTitle.sizeToFit()
         eventTitle.numberOfLines = 0
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     @IBOutlet weak var eventTitle: UILabel!
     @IBOutlet weak var eventImage: UIImageView!
