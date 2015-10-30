@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Near Me-->
@@ -62,11 +63,186 @@
                             <outlet property="delegate" destination="Mzm-nw-P1B" id="W92-wb-pOe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Potential Events" id="1ET-FV-Lq6"/>
+                    <navigationItem key="navigationItem" title="Potential Events" id="1ET-FV-Lq6">
+                        <barButtonItem key="rightBarButtonItem" title="Create Event" id="avr-PB-blU">
+                            <connections>
+                                <action selector="createEvent:" destination="Mzm-nw-P1B" id="q1f-3t-KfC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="WHW-7a-urM" kind="presentation" identifier="viewFeeds" id="QtN-QU-rxq"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PMS-A5-iYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="437" y="1553"/>
+        </scene>
+        <!--Feeds Tab View Controller-->
+        <scene sceneID="Dzb-rh-2Nw">
+            <objects>
+                <tabBarController id="WHW-7a-urM" customClass="feedsTabViewController" customModule="Crowdseye_Filmer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="oCM-8q-cGY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="g9Y-ea-3yn" kind="relationship" relationship="viewControllers" id="nEX-Yf-xpF"/>
+                        <segue destination="tUj-bY-DOv" kind="relationship" relationship="viewControllers" id="jsT-uz-0cM"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WWx-wh-Zu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1301" y="923"/>
+        </scene>
+        <!--Feeds-->
+        <scene sceneID="ib9-6H-MXY">
+            <objects>
+                <navigationController id="g9Y-ea-3yn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Feeds" id="T67-We-YWX"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zHf-kv-4F8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Ces-mB-mv4" kind="relationship" relationship="rootViewController" id="krE-eM-Vkf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4AH-Ra-fj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2093" y="417"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="7JS-hj-Vhh">
+            <objects>
+                <navigationController id="tUj-bY-DOv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" id="EGJ-eU-2pS"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Uk-ZA-rMG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="srG-7I-fId" kind="relationship" relationship="rootViewController" id="k6U-DR-de9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FhA-G0-y9J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2093" y="1617"/>
+        </scene>
+        <!--Filmer Feeds Map View-->
+        <scene sceneID="uZW-F0-GYh">
+            <objects>
+                <viewController id="srG-7I-fId" customClass="filmerFeedsMapView" customModule="Crowdseye_Filmer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J73-hq-ewA"/>
+                        <viewControllerLayoutGuide type="bottom" id="IJ6-xp-XhY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eSN-4D-JvT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DEc-g4-Kmo">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DEc-g4-Kmo" firstAttribute="bottom" secondItem="eSN-4D-JvT" secondAttribute="bottomMargin" id="MYW-Me-liK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DEc-g4-Kmo" secondAttribute="trailing" constant="-20" id="O9Z-ha-hnR"/>
+                            <constraint firstItem="DEc-g4-Kmo" firstAttribute="top" secondItem="eSN-4D-JvT" secondAttribute="topMargin" id="RQL-bp-eji"/>
+                            <constraint firstItem="DEc-g4-Kmo" firstAttribute="leading" secondItem="eSN-4D-JvT" secondAttribute="leadingMargin" constant="-20" id="VJG-oD-uw5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="nTB-yn-6NR">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="Wk8-Rk-JqY">
+                            <connections>
+                                <action selector="dismissView:" destination="srG-7I-fId" id="i6v-wt-uun"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="feedsMapView" destination="DEc-g4-Kmo" id="g9d-YG-VPd"/>
+                        <segue destination="OXT-5H-P9N" kind="presentation" identifier="viewFeed" id="npT-Hj-5Zh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JcS-PF-7Dc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2821" y="1617"/>
+        </scene>
+        <!--Filmer Watch Feed-->
+        <scene sceneID="c5y-6H-xLg">
+            <objects>
+                <viewController id="OXT-5H-P9N" customClass="filmerWatchFeed" customModule="Crowdseye_Filmer" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b0p-WK-OKT"/>
+                        <viewControllerLayoutGuide type="bottom" id="aDd-x8-gD3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FJH-ml-Kox">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OYy-yt-zFh">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmJ-dK-Huq">
+                                <rect key="frame" x="24" y="20" width="39" height="30"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closeView:" destination="OXT-5H-P9N" eventType="touchUpInside" id="f5s-sh-43e"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="OYy-yt-zFh" secondAttribute="trailing" constant="-20" id="51N-tM-38M"/>
+                            <constraint firstItem="kmJ-dK-Huq" firstAttribute="leading" secondItem="FJH-ml-Kox" secondAttribute="leadingMargin" constant="4" id="55B-TE-usX"/>
+                            <constraint firstItem="kmJ-dK-Huq" firstAttribute="top" secondItem="b0p-WK-OKT" secondAttribute="bottom" id="CgZ-5G-qYe"/>
+                            <constraint firstItem="aDd-x8-gD3" firstAttribute="top" secondItem="OYy-yt-zFh" secondAttribute="bottom" id="OWL-CA-022"/>
+                            <constraint firstItem="OYy-yt-zFh" firstAttribute="leading" secondItem="FJH-ml-Kox" secondAttribute="leadingMargin" constant="-20" id="gIx-0o-js8"/>
+                            <constraint firstItem="OYy-yt-zFh" firstAttribute="top" secondItem="FJH-ml-Kox" secondAttribute="topMargin" id="yMZ-BN-sNr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="OYy-yt-zFh" id="wmu-aa-TLu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sg4-Jb-4Xh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3541" y="1047"/>
+        </scene>
+        <!--Feeds Table-->
+        <scene sceneID="AqN-p6-Xgl">
+            <objects>
+                <tableViewController id="Ces-mB-mv4" customClass="feedsTable" customModule="Crowdseye_Filmer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2hU-Wo-KLL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7WP-3Z-1ef">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7WP-3Z-1ef" id="gc0-o5-Wlh">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Ces-mB-mv4" id="exV-qN-I0l"/>
+                            <outlet property="delegate" destination="Ces-mB-mv4" id="k4M-pB-jjL"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="3cO-WF-GDE"/>
+                    <connections>
+                        <segue destination="OXT-5H-P9N" kind="presentation" identifier="viewFeed" id="uYu-Ua-ENO"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WiI-wk-bSQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2821" y="417"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Iay-a1-as1">
@@ -116,10 +292,17 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="WHW-7a-urM" kind="presentation" identifier="viewFeeds" id="jX2-Qq-nhl"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uEL-Xn-P3K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="437" y="332"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jX2-Qq-nhl"/>
+        <segue reference="npT-Hj-5Zh"/>
+    </inferredMetricsTieBreakers>
 </document>

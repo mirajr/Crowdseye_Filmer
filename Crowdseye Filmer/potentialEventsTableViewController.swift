@@ -43,7 +43,7 @@ class potentialEventsTableViewController: UITableViewController, CLLocationManag
         manager.stopUpdatingLocation()
         var mostRecentLocation = locations[0]
         
-        var query = PFQuery(className: "events")
+        var query = PFQuery(className: "potentialEvents")
         query.orderByDescending("views")
         var currentLocation = PFGeoPoint(latitude: mostRecentLocation.coordinate.latitude, longitude: mostRecentLocation.coordinate.longitude)
         query.whereKey("location", nearGeoPoint: currentLocation, withinMiles: 20.0)
@@ -118,7 +118,7 @@ class potentialEventsTableViewController: UITableViewController, CLLocationManag
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.selectedEvent = self.events.objectAtIndex(indexPath.row) as! PFObject
-        //        self.performSegueWithIdentifier("viewFeeds", sender: nil)
+        self.performSegueWithIdentifier("viewFeeds", sender: nil)
     }
     
     @IBAction func createEvent(sender: UIBarButtonItem) {
@@ -168,11 +168,10 @@ class potentialEventsTableViewController: UITableViewController, CLLocationManag
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        //        if(segue.identifier == "viewFeeds") {
-        //            var destination = segue.destinationViewController as! feedsTabViewController
-        //            destination.eventObject = selectedEvent
-        ////            destination.eventObjectKey = selectedEventKey
-        //        }
+        if(segue.identifier == "viewFeeds") {
+            var destination = segue.destinationViewController as! feedsTabViewController
+            destination.eventObject = selectedEvent
+        }
         
     }
 

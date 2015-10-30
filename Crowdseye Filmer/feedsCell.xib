@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedsCell" rowHeight="379" id="YSp-nE-6dq" customClass="feedsTableViewCell" customModule="Crowdseye_News" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="380"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YSp-nE-6dq" id="TyV-Y9-ZjN">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="379.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mRU-g0-j9I">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="273.5"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9L0-P1-dfz">
+                        <rect key="frame" x="0.0" y="231" width="51" height="26"/>
+                        <color key="backgroundColor" red="0.87843137250000003" green="0.2274509804" blue="0.2274509804" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26" id="xxc-bu-NkV"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Views" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUG-Hl-1gg">
+                        <rect key="frame" x="289" y="8" width="31" height="24"/>
+                        <color key="backgroundColor" red="0.87843137250000003" green="0.2274509804" blue="0.2274509804" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="0jO-LG-S7E"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JfP-re-7R9">
+                        <rect key="frame" x="0.0" y="210" width="29.5" height="21"/>
+                        <color key="backgroundColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="FKH-hx-tlE"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bUG-Hl-1gg" firstAttribute="top" secondItem="TyV-Y9-ZjN" secondAttribute="topMargin" id="2PJ-zP-cUY"/>
+                    <constraint firstItem="mRU-g0-j9I" firstAttribute="top" secondItem="TyV-Y9-ZjN" secondAttribute="topMargin" constant="-8" id="3yL-xA-Ujs"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="9L0-P1-dfz" secondAttribute="bottom" constant="8" id="6UA-d3-iEP"/>
+                    <constraint firstItem="9L0-P1-dfz" firstAttribute="leading" secondItem="TyV-Y9-ZjN" secondAttribute="leadingMargin" constant="-8" id="Cjs-iC-wuG"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="mRU-g0-j9I" secondAttribute="bottom" constant="-8" id="Evj-fs-B7C"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="mRU-g0-j9I" secondAttribute="trailing" constant="-8" id="GHS-hJ-gAP"/>
+                    <constraint firstItem="mRU-g0-j9I" firstAttribute="leading" secondItem="TyV-Y9-ZjN" secondAttribute="leadingMargin" constant="-8" id="MWR-1L-dk6"/>
+                    <constraint firstItem="9L0-P1-dfz" firstAttribute="centerY" secondItem="TyV-Y9-ZjN" secondAttribute="centerY" id="WNH-V2-Him"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="bUG-Hl-1gg" secondAttribute="trailing" constant="-8" id="a9s-el-Q81"/>
+                    <constraint firstItem="JfP-re-7R9" firstAttribute="leading" secondItem="TyV-Y9-ZjN" secondAttribute="leadingMargin" constant="-8" id="eEp-Rc-NWm"/>
+                    <constraint firstItem="9L0-P1-dfz" firstAttribute="top" secondItem="JfP-re-7R9" secondAttribute="bottom" id="zOL-BO-okz"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="WNH-V2-Him"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="feedAuthor" destination="JfP-re-7R9" id="uPx-s9-tVb"/>
+                <outlet property="feedPreview" destination="mRU-g0-j9I" id="QB1-4v-xvN"/>
+                <outlet property="feedTitle" destination="9L0-P1-dfz" id="pxt-1o-iFG"/>
+                <outlet property="feedViews" destination="bUG-Hl-1gg" id="bcr-KF-sCi"/>
+            </connections>
+            <point key="canvasLocation" x="302" y="626"/>
+        </tableViewCell>
+    </objects>
+</document>

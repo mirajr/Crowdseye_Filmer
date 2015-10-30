@@ -1,58 +1,43 @@
 //
-//  nearMeTableViewController.swift
+//  feedTableViewController.swift
 //  SampleBroadcaster-Swift
 //
-//  Created by Patrick O'Grady on 9/9/15.
+//  Created by Patrick O'Grady on 9/8/15.
 //  Copyright © 2015 videocore. All rights reserved.
 //
 
 import UIKit
-import CoreLocation
 
-class nearMeTableViewController: UITableViewController, CLLocationManagerDelegate {
-
-    var events:NSMutableArray = NSMutableArray()
+class feedsTable: UITableViewController {
     
-    var eventsRetrieved = NSMutableArray()
+    var eventObject:PFObject!
     
-    var selectedEvent:PFObject!
+    var feeds: NSMutableArray = NSMutableArray()
     
-    var locationManager:CLLocationManager!
+    var selectedFeed:PFObject!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
         
-        tableView.registerNib(UINib(nibName: "eventsCell", bundle: nil), forCellReuseIdentifier: "eventsCell")
+        var feedsTabBar = self.tabBarController as! feedsTabViewController
+        
+        self.eventObject = feedsTabBar.eventObject
+        
+        tableView.registerNib(UINib(nibName: "feedsCell", bundle: nil), forCellReuseIdentifier: "feedsCell")
         
         tableView.rowHeight = 380
         
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        locationManager.startUpdatingLocation()
-    }
-    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        manager.stopUpdatingLocation()
-        var mostRecentLocation = locations[0]
-        
-        var query = PFQuery(className: "events")
+        var query = PFQuery(className: "feeds")
+        query.whereKey("event", equalTo: eventObject.objectId!)
         query.orderByDescending("views")
-        var currentLocation = PFGeoPoint(latitude: mostRecentLocation.coordinate.latitude, longitude: mostRecentLocation.coordinate.longitude)
-        query.whereKey("location", nearGeoPoint: currentLocation, withinMiles: 20.0)
+        
         query.findObjectsInBackground().continueWithBlock({ (task: BFTask!) -> AnyObject! in
             if(task.result != nil) {
-                self.events.removeAllObjects()
-                print(task.result)
-                self.events.addObjectsFromArray(task.result as! [AnyObject])
+                self.feeds.removeAllObjects()
+                self.feeds.addObjectsFromArray(task.result as! [AnyObject])
             }
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
@@ -60,16 +45,14 @@ class nearMeTableViewController: UITableViewController, CLLocationManagerDelegat
             return task
         })
         
-        var currentUser = PFUser.currentUser()!
-        currentUser["recentLocation"] = currentLocation
-        currentUser.saveInBackground()
-        
     }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    @IBAction func returnToEvents(sender: UIBarButtonItem) {
+        self.tabBarController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - Table view data source
@@ -81,51 +64,37 @@ class nearMeTableViewController: UITableViewController, CLLocationManagerDelegat
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.events.count
+        return self.feeds.count
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("eventsCell", forIndexPath: indexPath) as! eventsTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("feedsCell", forIndexPath: indexPath) as! feedsTableViewCell
         
-        let object = self.events.objectAtIndex(indexPath.row) as! PFObject
+        var object = self.feeds.objectAtIndex(indexPath.row) as! PFObject
         
-        let currentLocation = PFUser.currentUser()!["recentLocation"] as! PFGeoPoint
+        cell.feedTitle.text = " " + (object["name"] as! String) + " "
         
-        let location = object["location"] as! PFGeoPoint
-        
-        var event = CLLocation(latitude: location.latitude, longitude: location.longitude)
-        
-        var user = CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
-        
-        cell.distanceTitle.text = "Distance Away: " + String(event.distanceFromLocation(user)/1600) + " miles"
-        
-        //var object = self.events.objectAtIndex(indexPath.row) as! PFObject
-        cell.eventTitle.text = " " + (object["name"] as! String) + " "
-        
-        cell.eventTitle.numberOfLines = 0
-        cell.eventTitle.sizeToFit()
-        
-        downloadImage(NSURL(string: object["image"] as! String)!, myImageView: cell.eventImage)
+        cell.feedTitle.numberOfLines = 0
+        cell.feedTitle.sizeToFit()
         
         var views = object["views"] as! Int
         
-        cell.viewsText.text = " Views: " + String(views) + "  "
+        cell.feedViews.text = " Views: " + String(views) + "  "
         
+        cell.feedAuthor.text = object["author"] as! String
         
-
+        downloadImage(NSURL(string: object["image"] as! String)!, myImageView: cell.feedPreview)
+        
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.selectedEvent = self.events.objectAtIndex(indexPath.row) as! PFObject
-        self.performSegueWithIdentifier("viewFeeds", sender: nil)
+        self.selectedFeed = self.feeds.objectAtIndex(indexPath.row) as! PFObject
+        self.performSegueWithIdentifier("viewFeed", sender: nil)
+        
     }
     
-    @IBAction func createEvent(sender: UIBarButtonItem) {
-        var kickflip = Kickflip.setupWithAPIKey("test", secret: "test")
-        Kickflip.presentBroadcasterFromViewController(self, eventObject: nil, ready: nil, completion: nil)
-    }
     
     /*
     // Override to support conditional editing of the table view.
@@ -169,12 +138,13 @@ class nearMeTableViewController: UITableViewController, CLLocationManagerDelegat
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if(segue.identifier == "viewFeeds") {
-            var destination = segue.destinationViewController as! feedsTabViewController
-            destination.eventObject = selectedEvent
-
+        if(segue.identifier == "viewFeed") {
+            var destination = segue.destinationViewController as! filmerWatchFeed
+            destination.feedObject = self.selectedFeed
+            destination.eventObject = self.eventObject
         }
         
     }
-
+    
+    
 }
