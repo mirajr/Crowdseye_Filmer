@@ -62,7 +62,7 @@ class feedsTable: UITableViewController {
         var coordinates = CLLocationCoordinate2DMake(location.latitude, location.longitude)
         var placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
         var mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = "\(self.eventObject["name"] as! String)"
+        mapItem.name = self.eventObject["name"] as! String
         mapItem.openInMapsWithLaunchOptions(nil)
     }
     
