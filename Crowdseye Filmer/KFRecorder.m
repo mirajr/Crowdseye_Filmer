@@ -497,6 +497,7 @@
                                                       @"lowerName" : [titleText lowercaseString],
                                                       @"event" : [newEvent objectId],
                                                       @"views" : @0,
+                                                      @"kudos" : @0,
                                                       @"user" : [currentUser objectId],
                                                       @"location" : currentLocation
                                                       }];
