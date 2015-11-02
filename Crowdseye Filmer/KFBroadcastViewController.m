@@ -82,7 +82,7 @@
 - (void) setupCommentsTable {
     self.chats = [[NSMutableArray alloc] init];
     
-    self.commentsTable = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, self.view.bounds.size.height - 300, 400, 300)];
+    self.commentsTable = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, self.view.bounds.size.height - 400, 400, 300)]; //puts 100 above bottom
     self.commentsTable.backgroundColor = [UIColor clearColor];
     
     [self.commentsTable registerNib:[UINib nibWithNibName:@"chatCell" bundle:nil] forCellReuseIdentifier:@"chatCell"];
