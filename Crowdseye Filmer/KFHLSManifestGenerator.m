@@ -58,7 +58,7 @@
     
     if ([self.segments objectForKey:[NSNumber numberWithInteger:mediaSequence]] == nil) {
         DDLogDebug(@"%@", [NSString stringWithFormat:@"Writing to manifest... #EXTINF:%g %@", duration, fileName]);
-        if (duration == 0) {
+        if (duration <= 1) { //won't upload feed if
             return;
         }
         [self.segments setObject:[NSString stringWithFormat:@"#EXTINF:%g,\n%@\n", duration, fileName] forKey:[NSNumber numberWithInteger:mediaSequence]];
