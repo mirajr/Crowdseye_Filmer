@@ -19,7 +19,7 @@
  *
  *  You can also use the Kickflip class to show this view from any UIViewController.
  */
-@interface KFBroadcastViewController : UIViewController <KFRecorderDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface KFBroadcastViewController : UIViewController <KFRecorderDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @property (nonatomic, copy) KFBroadcastReadyBlock readyBlock;
 @property (nonatomic, copy) KFBroadcastCompletionBlock completionBlock;

@@ -54,9 +54,9 @@
     [self.view addSubview:self.recordButton];
     [self.recordButton addTarget:self action:@selector(recordButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
-    NSLayoutConstraint *constraint = [self.recordButton autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10.0f];
+    NSLayoutConstraint *constraint = [self.recordButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:10.0f];
     [self.view addConstraint:constraint];
-    constraint = [self.recordButton autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+    constraint = [self.recordButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
     [self.view addConstraint:constraint];
 }
 
@@ -91,7 +91,7 @@
     self.commentsTable.delegate = self;
     self.commentsTable.dataSource = self;
     [self.view addSubview:self.commentsTable];
-//    NSLayoutConstraint *constraint = [self.commentsTable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:50.0f];
+//    NSLayoutConstraint *constraint = [self.commentsTable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:50.0f];
 //    [self.view addConstraint:constraint];
 //    constraint = [self.commentsTable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:-8.0f];
 //    [self.view addConstraint:constraint];
@@ -233,6 +233,13 @@
     [self setupRotationLabel];
     [self setupTitleLabel];
     [self setupCommentsTable];
+    [self.titleText setDelegate:self];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
@@ -343,17 +350,6 @@
             NSLog(@"RELOADED");
         });
     }];
-    //get feedrefkey
-//    chatRef = Firebase(url: "https://godseye.firebaseio.com/comments/\(eventKey)/\(self.feedRef.key)")
-    //chatRef.observeEventType(FEventType.ChildAdded) { (snapshot:FDataSnapshot!) -> Void in
-    //                self.chats.insertObject(snapshot.value, atIndex: 0)
-    //                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-    //                    self.commentsTable.reloadData()
-    //                    print(snapshot.value)
-    //                })
-    //
-    //            }
-//    self.commentsTable.hidden = false
 
     if (error) {
         DDLogError(@"Error starting stream: %@", error.userInfo);
