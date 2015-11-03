@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if(currentUser["name"] == nil || currentUser["name"] as! String == "") {
                 currentUser["name"] = "Anonymous"
+                currentUser["votedEvents"] = []
                 try currentUser.save()
             }
         } catch {

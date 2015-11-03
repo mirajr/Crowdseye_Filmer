@@ -128,6 +128,15 @@ class nearMeTableViewController: UITableViewController, CLLocationManagerDelegat
         Kickflip.presentBroadcasterFromViewController(self, eventObject: nil, ready: nil, completion: nil)
     }
     
+    @IBAction func viewAccount(sender: UIBarButtonItem) {
+        var currentUser = PFUser.currentUser()!
+        if(currentUser["name"] as! String == "Anonymous") {
+            self.performSegueWithIdentifier("signUp", sender: nil)
+        } else {
+            self.performSegueWithIdentifier("viewMyFeeds", sender: nil)
+        }
+        
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
