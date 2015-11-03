@@ -472,7 +472,8 @@
                                                    @"name" : titleText,
                                                    @"location" : currentLocation,
                                                    @"lowerName" : [titleText lowercaseString],
-                                                   @"potential" : @true
+                                                   @"potential" : @1,
+                                                   @"paid" : @0
                                                    }];
         [newEvent save];
         PFQuery *userQuery = [PFUser query];
