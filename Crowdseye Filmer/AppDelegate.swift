@@ -39,9 +39,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             credentialsProvider: credentialsProvider)
         
         AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = defaultServiceConfiguration
+        
+        var settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
 
         
         return true
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        var currentInstallation = PFInstallation.currentInstallation()
+        currentInstallation.setDeviceTokenFromData(deviceToken)
+        currentInstallation["user"] = PFUser.currentUser()!
+        currentInstallation["channels"] = ["filmer"]
+        currentInstallation.saveInBackground()
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        PFPush.handlePush(userInfo)
     }
 
     func applicationWillResignActive(application: UIApplication) {

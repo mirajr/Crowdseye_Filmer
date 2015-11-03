@@ -475,6 +475,18 @@
                                                    @"potential" : @true
                                                    }];
         [newEvent save];
+        PFQuery *userQuery = [PFUser query];
+        [userQuery whereKey:@"recentLocation" nearGeoPoint:currentLocation withinMiles:5.0f];
+        
+        PFQuery *pushQuery = [PFInstallation query];
+        [pushQuery whereKey:@"user" matchesQuery:userQuery];
+        [pushQuery whereKey:@"channels" containsString:@"filmer"];
+        
+        PFPush *push = [[PFPush alloc] init];
+        [push setQuery:pushQuery];
+        [push setMessage:[NSString stringWithFormat:@"New Potential Event: %@", titleText]];
+        [push sendPushInBackground];
+        
         
     }
     

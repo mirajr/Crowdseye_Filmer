@@ -110,7 +110,7 @@ class filmerFeedsMapView: UIViewController, MKMapViewDelegate {
         
         //Scaling the image code
         let cgImage = UIImage(named: "EventAnnotation")!.CGImage
-        let width = CGImageGetWidth(cgImage) / 5 //Multiplied times the number of views
+        let width = CGImageGetWidth(cgImage) / 5
         let height = CGImageGetHeight(cgImage) / 5
         let bitsPerComponent = CGImageGetBitsPerComponent(cgImage)
         let bytesPerRow = CGImageGetBytesPerRow(cgImage)
