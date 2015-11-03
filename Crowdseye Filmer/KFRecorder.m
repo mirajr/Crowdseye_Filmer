@@ -480,7 +480,7 @@
         
         PFQuery *pushQuery = [PFInstallation query];
         [pushQuery whereKey:@"user" matchesQuery:userQuery];
-        [pushQuery whereKey:@"channels" containsString:@"filmer"];
+        [pushQuery whereKey:@"appIdentifier" equalTo:@"crowdseye.Crowdseye-Filmer"];
         
         PFPush *push = [[PFPush alloc] init];
         [push setQuery:pushQuery];
