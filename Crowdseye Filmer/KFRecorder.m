@@ -497,7 +497,8 @@
     [self.feedObject save];
     
     if (eventObject == nil) {
-        [newEvent setObject:[NSString stringWithFormat:@"https://s3-us-west-1.amazonaws.com/crowdseye/%@/thumb.jpg", self.feedObject.objectId] forKey:@"image"];
+//        [newEvent setObject:[NSString stringWithFormat:@"https://s3-us-west-1.amazonaws.com/crowdseye/%@/thumb.jpg", self.feedObject.objectId] forKey:@"image"];
+        [newEvent setObject:[NSString stringWithFormat:@"http://vod-20ce.kxcdn.com/%@/thumb.jpg", self.feedObject.objectId] forKey:@"image"];
         [newEvent saveInBackground];
     }
     
@@ -505,7 +506,7 @@
     [self.feedObject setValuesForKeysWithDictionary:@{
                                                       @"author" : [currentUser objectForKey:@"name"],
                                                       @"status": @"live",
-                                                      @"image": [NSString stringWithFormat:@"https://s3-us-west-1.amazonaws.com/crowdseye/%@/thumb.jpg", self.feedObject.objectId],
+                                                      @"image": [NSString stringWithFormat:@"http://vod-20ce.kxcdn.com/%@/thumb.jpg", self.feedObject.objectId],
                                                       @"name" : titleText,
                                                       @"lowerName" : [titleText lowercaseString],
                                                       @"event" : [newEvent objectId],

@@ -27,9 +27,9 @@ class filmerWatchFeed: UIViewController {
         }
         
         if(feedObject["status"] as! String == "live") {
-            feedURL = "https://s3-us-west-1.amazonaws.com/crowdseye/\(feedObject.objectId!)/index.m3u8"
+            feedURL = "http://live-20ce.kxcdn.com/\(feedObject.objectId!)/index.m3u8"
         } else {
-            feedURL = "https://s3-us-west-1.amazonaws.com/crowdseye/\(feedObject.objectId!)/vod.m3u8"
+            feedURL = "http://vod-20ce.kxcdn.com/\(feedObject.objectId!)/vod.m3u8"
             
         }
         
