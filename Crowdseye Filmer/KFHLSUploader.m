@@ -94,6 +94,9 @@ static NSString * const kKFS3Key = @"kKFS3Key";
 - (void) finishedRecording {
     self.isFinishedRecording = YES;
     NSLog(@"Finish Pressed");
+    [_queuedSegments removeAllObjects];
+//    [_queuedSegments dealloc];
+    
     if (!self.hasUploadedFinalManifest) {
         // TEL
         // Ensure the last segment is uploaded.
@@ -260,6 +263,7 @@ static NSString * const kKFS3Key = @"kKFS3Key";
             NSString *uploadState = [_files objectForKey:fileName];
             if (!uploadState) {
                 DDLogDebug(@"Detected ts... %@", fileName);
+                NSLog(@"Detected ts...%@", fileName);
                 
                 NSString *manifestSnapshot = [self manifestSnapshot];
                 
@@ -380,6 +384,7 @@ static NSString * const kKFS3Key = @"kKFS3Key";
             });
         } else if ([fileName.pathExtension isEqualToString:@"ts"]) {
             DDLogDebug(@"Uploaded ts... %@", fileName);
+            NSLog(@"File Upload Completed For: %@", fileName);
             
             NSDictionary *segmentInfo = [_queuedSegments objectForKey:@(_nextSegmentIndexToUpload)];
             NSString *filePath = [_directoryPath stringByAppendingPathComponent:fileName];
@@ -413,7 +418,8 @@ static NSString * const kKFS3Key = @"kKFS3Key";
             // VOD
             if (true) {
                 NSLog(@"FINALIZED MANIFEST");
-                [self.manifestGenerator appendFromLiveManifest:[self manifestSnapshot]];
+                NSLog(@"Manifest Snapshot %@", [self manifestSnapshot]);
+//                [self.manifestGenerator appendFromLiveManifest:[self manifestSnapshot]]; //will any be uploaded?
                 [self.manifestGenerator finalizeManifest];
                 [self updateManifestWithString:[self.manifestGenerator manifestString] manifestName:kVODManifestFileName];
             }
