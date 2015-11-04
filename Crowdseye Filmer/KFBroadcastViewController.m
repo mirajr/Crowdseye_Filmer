@@ -30,6 +30,7 @@
 - (void) setupCameraView {
     _cameraView = [[UIView alloc] init];
     _cameraView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
+    self.currentView = @"rear";
     [self.view addSubview:_cameraView];
 }
 
@@ -189,61 +190,62 @@
 }
 
 - (void) shareButtonPressed:(id)sender {
-//    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[self.recorder.stream.kickflipURL] applicationActivities:nil];
-//    
-//    UIActivityViewControllerCompletionHandler completionHandler = ^(NSString *activityType, BOOL completed) {
-//        DDLogInfo(@"share activity: %@", activityType);
-//    };
-//    activityViewController.completionHandler = completionHandler;
-//    
-//    [self presentViewController:activityViewController animated:YES completion:nil];
-//    NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
-//    for (AVCaptureDevice *device in devices) {
-//        if ([device position] == AVCaptureDevicePositionFront) {
-//            AVCaptureDeviceInput* videoInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
-//            [self.recorder.session beginConfiguration];
-//            [self.recorder.session removeInput:self.recorder.recentInput];
-//            [self.recorder.session addInput:videoInput];
-//            // create an output for YUV output with self as delegate
-////            self.recorder.videoQueue = dispatch_queue_create("Video Capture Queue", DISPATCH_QUEUE_SERIAL);
-////            self.recorder.videoOutput = [[AVCaptureVideoDataOutput alloc] init];
-////            self.recorder.videoOutput.videoSettings = @{ (NSString*)kCVPixelBufferPixelFormatTypeKey: @(kCVPixelFormatType_32BGRA) };
-////            self.recorder.videoOutput.alwaysDiscardsLateVideoFrames = YES;
-////            [self.recorder.videoOutput setSampleBufferDelegate:self.recorder queue:self.recorder.videoQueue];
-////            if ([self.recorder.session canAddOutput:self.recorder.videoOutput]) {
-////                [self.recorder.session addOutput:self.recorder.videoOutput];
-////            }
-////            self.recorder.videoConnection = [self.recorder.videoOutput connectionWithMediaType:AVMediaTypeVideo];
-////            self.recorder.videoConnection.videoOrientation = [self avOrientationForInterfaceOrientation:[UIApplication sharedApplication].statusBarOrientation];
-////
-//            [self.recorder.session commitConfiguration];
-//        }
-//    }
-    
     NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
-    for (AVCaptureDevice *device in devices) {
-        if ([device position] == AVCaptureDevicePositionFront) {
-            AVCaptureDeviceInput* videoInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
-            [self.recorder.session beginConfiguration];
-            [self.recorder.session removeInput:self.recorder.recentInput];
-            [self.recorder.session addInput:videoInput];
-            [self.recorder.session removeOutput:self.recorder.videoOutput];
-            
-//            //             create an output for YUV output with self as delegate
-            self.recorder.videoOutput = [[AVCaptureVideoDataOutput alloc] init];
-            self.recorder.videoOutput.videoSettings = @{ (NSString*)kCVPixelBufferPixelFormatTypeKey: @(kCVPixelFormatType_32BGRA) };
-//            self.recorder.videoOutput.alwaysDiscardsLateVideoFrames = YES;
-            [self.recorder.videoOutput setSampleBufferDelegate:self.recorder queue:self.recorder.videoQueue];
-            if ([self.recorder.session canAddOutput:self.recorder.videoOutput]) {
-                [self.recorder.session addOutput:self.recorder.videoOutput];
+    if (self.currentView == @"rear") {
+        for (AVCaptureDevice *device in devices) {
+            if ([device position] == AVCaptureDevicePositionFront) {
+                AVCaptureDeviceInput* videoInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
+                [self.recorder.session beginConfiguration];
+                [self.recorder.session removeInput:self.recorder.recentInput];
+                [self.recorder.session addInput:videoInput];
+                
+                [self.recorder.session removeOutput:self.recorder.videoOutput];
+                
+                //            //             create an output for YUV output with self as delegate
+                self.recorder.videoOutput = [[AVCaptureVideoDataOutput alloc] init];
+                self.recorder.videoOutput.videoSettings = @{ (NSString*)kCVPixelBufferPixelFormatTypeKey: @(kCVPixelFormatType_32BGRA) };
+                //            self.recorder.videoOutput.alwaysDiscardsLateVideoFrames = YES;
+                [self.recorder.videoOutput setSampleBufferDelegate:self.recorder queue:self.recorder.videoQueue];
+                if ([self.recorder.session canAddOutput:self.recorder.videoOutput]) {
+                    [self.recorder.session addOutput:self.recorder.videoOutput];
+                }
+                self.recorder.videoConnection = [self.recorder.videoOutput connectionWithMediaType:AVMediaTypeVideo];
+                self.recorder.videoConnection.videoOrientation = [self avOrientationForInterfaceOrientation:[UIApplication sharedApplication].statusBarOrientation];
+                //
+                [self.recorder.session commitConfiguration];
+                self.recorder.recentInput = videoInput;
+                self.currentView = @"front";
             }
-            self.recorder.videoConnection = [self.recorder.videoOutput connectionWithMediaType:AVMediaTypeVideo];
-            self.recorder.videoConnection.videoOrientation = [self avOrientationForInterfaceOrientation:[UIApplication sharedApplication].statusBarOrientation];
-            //
-            [self.recorder.session commitConfiguration];
         }
-    }
+    } else {
+        for (AVCaptureDevice *device in devices) {
+            if ([device position] == AVCaptureDevicePositionBack) {
+                AVCaptureDeviceInput* videoInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
+                [self.recorder.session beginConfiguration];
+                [self.recorder.session removeInput:self.recorder.recentInput];
+                [self.recorder.session addInput:videoInput];
+                
+                [self.recorder.session removeOutput:self.recorder.videoOutput];
+                
+                //            //             create an output for YUV output with self as delegate
+                self.recorder.videoOutput = [[AVCaptureVideoDataOutput alloc] init];
+                self.recorder.videoOutput.videoSettings = @{ (NSString*)kCVPixelBufferPixelFormatTypeKey: @(kCVPixelFormatType_32BGRA) };
+                //            self.recorder.videoOutput.alwaysDiscardsLateVideoFrames = YES;
+                [self.recorder.videoOutput setSampleBufferDelegate:self.recorder queue:self.recorder.videoQueue];
+                if ([self.recorder.session canAddOutput:self.recorder.videoOutput]) {
+                    [self.recorder.session addOutput:self.recorder.videoOutput];
+                }
+                self.recorder.videoConnection = [self.recorder.videoOutput connectionWithMediaType:AVMediaTypeVideo];
+                self.recorder.videoConnection.videoOrientation = [self avOrientationForInterfaceOrientation:[UIApplication sharedApplication].statusBarOrientation];
+                //
+                [self.recorder.session commitConfiguration];
+                self.recorder.recentInput = videoInput;
+                self.currentView = @"rear";
+            }
+        }
 
+    }
+    
 }
 
 - (void)viewDidLoad

@@ -40,5 +40,6 @@
 @property (nonatomic, strong) UITextField *titleText;
 @property (nonatomic, strong) UITableView *commentsTable;
 @property (nonatomic, strong) NSMutableArray *chats;
+@property (nonatomic, strong) NSString *currentView;
 
 @end
