@@ -40,26 +40,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = defaultServiceConfiguration
         
-        var settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
-        
-        application.registerUserNotificationSettings(settings)
-        application.registerForRemoteNotifications()
+//        var settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+//        
+//        application.registerUserNotificationSettings(settings)
+//        application.registerForRemoteNotifications()
 
         
         return true
     }
     
-    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        var currentInstallation = PFInstallation.currentInstallation()
-        currentInstallation.setDeviceTokenFromData(deviceToken)
-        currentInstallation["user"] = PFUser.currentUser()!
-        currentInstallation["channels"] = ["filmer"]
-        currentInstallation.saveInBackground()
-    }
-    
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        PFPush.handlePush(userInfo)
-    }
+//    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+//        var currentInstallation = PFInstallation.currentInstallation()
+//        currentInstallation.setDeviceTokenFromData(deviceToken)
+//        currentInstallation["user"] = PFUser.currentUser()!
+//        currentInstallation["channels"] = ["filmer"]
+//        currentInstallation.saveInBackground()
+//    }
+//    
+//    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+//        PFPush.handlePush(userInfo)
+//    }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
