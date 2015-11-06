@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             PFUser.enableAutomaticUser();
             try PFUser.currentUser()?.save()
             
-            var currentUser = PFUser.currentUser()!
+            let currentUser = PFUser.currentUser()!
             
             if(currentUser["name"] == nil || currentUser["name"] as! String == "") {
                 currentUser["name"] = "Anonymous"
@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Sign up unsuccessful")
         }
         
-        var credentialsProvider = AWSCognitoCredentialsProvider(regionType: AWSRegionType.USEast1, identityPoolId: "us-east-1:cdb87120-5f38-479d-955c-39cd27f27aac")
+        let credentialsProvider = AWSCognitoCredentialsProvider(regionType: AWSRegionType.USEast1, identityPoolId: "us-east-1:cdb87120-5f38-479d-955c-39cd27f27aac")
         
         let defaultServiceConfiguration = AWSServiceConfiguration(
             region: AWSRegionType.USWest1,
