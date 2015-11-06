@@ -49,6 +49,19 @@
     [self.view addConstraint:constraint];
 }
 
+- (void) setupFlipButton {
+    _flipButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [_flipButton addTarget:self action:@selector(flipButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_flipButton setTitle:@"Flip Camera" forState:UIControlStateNormal];
+    self.flipButton.enabled = YES;
+    self.flipButton.hidden = true;
+    [self.view addSubview:self.flipButton];
+    NSLayoutConstraint *constraint = [self.flipButton autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:10.0f];
+    [self.view addConstraint:constraint];
+    constraint = [self.flipButton autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10.0f];
+    [self.view addConstraint:constraint];
+}
+
 - (void) setupRecordButton {
 
     self.recordButton = [[KFRecordButton alloc] initWithFrame:CGRectZero];
@@ -189,7 +202,7 @@
     }
 }
 
-- (void) shareButtonPressed:(id)sender {
+- (void) flipButtonPressed:(id)sender {
     NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
     if (self.currentView == @"rear") {
         for (AVCaptureDevice *device in devices) {
@@ -248,12 +261,21 @@
     
 }
 
+- (void) shareButtonPressed:(id)sender {
+    NSString *feedObjectId = [self.recorder.feedObject objectId];
+    NSString *feedName = self.recorder.feedObject[@"name"];
+    NSString *text = [NSString stringWithFormat:@"Check out the feed %@ on Crowdseye News. https://godseye.firebaseapp.com/watch.html?feed=%@", feedName, feedObjectId];
+    UIActivityViewController *activityView = [[UIActivityViewController alloc] initWithActivityItems:@[text] applicationActivities:nil];
+    [self presentViewController:activityView animated:true completion:nil];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
     [self setupCameraView];
     [self setupShareButton];
+    [self setupFlipButton];
     [self setupRecordButton];
     [self setupCancelButton];
     [self setupRotationImageView];
@@ -368,6 +390,7 @@
 
 - (void) recorderDidStartRecording:(KFRecorder *)recorder error:(NSError *)error {
     self.recordButton.enabled = YES;
+    self.flipButton.hidden = false;
     self.commentsTable.hidden = false;
     Firebase *chatRef = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"https://godseye.firebaseio.com/comments/%@", recorder.feedObject.objectId]];
     [chatRef observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {

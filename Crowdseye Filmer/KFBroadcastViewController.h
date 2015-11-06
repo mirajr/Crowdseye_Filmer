@@ -26,6 +26,7 @@
 
 @property (strong, nonatomic) UIView *cameraView;
 @property (nonatomic, strong) UIButton *shareButton;
+@property (nonatomic, strong) UIButton *flipButton;
 @property (nonatomic, strong) KFRecordButton *recordButton;
 @property (nonatomic, strong) UIImageView *liveBanner;
 
